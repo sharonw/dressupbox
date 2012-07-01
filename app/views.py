@@ -1,10 +1,19 @@
 from django.shortcuts import render_to_response
+from django.views.generic.base import TemplateView
 from app.models import User, Dress, Transaction
 
 # To implement more views, see Part 3 of the official Django tutorial:
 # https://docs.djangoproject.com/en/dev/intro/tutorial03/
 
-# Dynamic pages
+# Navigation bar for public pages
+
+nav_list = {'login':    'frontend/login.html',
+            'signup':   'frontend/signup.html',
+            'map':      'frontend/map.html',
+            'dress':    'frontend/dress.html',
+            'moreinfo': 'frontend/moreinfo.html'}
+
+# User pages (requires login)
 
 def search(request):
     return render_to_response('frontend/need.html')
@@ -15,22 +24,19 @@ def results(request):
     all_dresses = Dress.objects.all()
     return render_to_response('frontend/results.html', {'all_dresses': all_dresses})
 
-# Static pages
-
-def default(request):
-    return HttpResponse("This is the default placeholder page.")
+# Public pages (does not require login)
 
 def login(request):
-    return HttpResponse("This is the login page")
+    return render_to_response('frontend/login.html', {'nav_list': nav_list})
 
 def signup(request):
-    return HttpResponse("This is the signup page")
+    return render_to_response('frontend/signup.html', {'nav_list': nav_list})
 
 def map(request):
-    return HttpResponse("This is the map page")
+    return render_to_response('frontend/map.html', {'nav_list': nav_list})
 
 def dress(request):
-    return HttpResponse("This is the map page")
+    return render_to_response('frontend/dress.html', {'nav_list': nav_list})
 
 def moreinfo(request):
-    return HttpResponse("This is the more info page")
+    return render_to_response('frontend/moreinfo.html', {'nav_list': nav_list})

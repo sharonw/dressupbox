@@ -10,15 +10,16 @@ Getting the code
 
 To get a local copy of the current code, clone it using git:
 
-$ git clone git://github.com/wendykan/dressupbox.git
+    git clone git://github.com/wendykan/dressupbox.git
+    cd dressupbox
 
-$ cd dressupbox
+It's easy to edit this file. Check out this guide to GitHub Flavored Markdown for syntax: http://github.github.com/github-flavored-markdown/
 
 Troubleshooting
 ===============
 
 If you can't upload a file, check dressupbox/settings.py. In that file, you'll need to change
-MEDIA_ROOT to point to a local directory.
+MEDIA_ROOT and TEMPLATE_DIRS to point to local directories.
 
 If you run
 
@@ -27,4 +28,7 @@ If you run
 and you get an error, try running this to resolve the files
 
     git pull origin master
+
+manually merge the files, type git add to mark them resolved, then recommit and run this
+
     get push origin master

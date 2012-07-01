@@ -4,5 +4,16 @@
 </head>
 <body>
 
+<div class="nav">
+<p>
+{% for nav in nav_list %}
+    <a href="/{{ nav }}" title="{{ nav }}">{{ nav }}</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{% endfor %}
+</p>
+</div>
+
+More info pitch page stub
+
 </body>
 </html>
